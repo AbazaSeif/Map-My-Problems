@@ -22,14 +22,18 @@
 		$db = $m -> map;
 		$collection = $db -> users;
 		$constituency = "";
+		$fullname = "";
 		$cursor = $collection -> find(array('username' => $username));
 	    foreach ($cursor as $doc) {
 	        $constituency = $doc["constituency"];
+	        $fullname = $doc["name"];
+	        $dist = $doc["district"];
 	    }
 		$creds = array('username' => $username, 'pass' => $password, 'active' => 1);
 		$count = $collection -> count($creds);
 		if ($count) {
 			$_SESSION['username'] = $username;
+			$_SESSION['fullname'] = $fullname;
 			$_SESSION['constituency'] = $constituency;
 
 			$collection = $db -> attempts;

@@ -13,7 +13,7 @@
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.2.43/jquery.form-validator.min.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-    <script src='https://www.google.com/recaptcha/api.js?hl=ta'></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <script type="text/javascript">
         window.alert = function(){};
@@ -36,45 +36,45 @@
             <div class="col-md-4 col-md-offset-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">உள் நுழை</h3>
+                        <h3 class="panel-title">Login</h3>
                     </div>
                     <div class="panel-body">
                         <form role="form" action="checklogin.php" method="post">
                         <fieldset>
                             <div class="form-group">
-                                <input class="form-control" data-validation="length alphanumeric" data-validation-length="min6" placeholder="பயனாளர் பெயர்" name="username" type="text">
+                                <input class="form-control" data-validation="length alphanumeric" data-validation-length="min6" placeholder="Username" name="username" type="text">
                             </div>
                             <div class="form-group">
-                                <input class="form-control" data-validation="length" data-validation-length="min8" placeholder="கடவுச்சொல்" name="password" type="password" value="">
+                                <input class="form-control" data-validation="length" data-validation-length="min8" placeholder="Password" name="password" type="password" value="">
                             </div>
                             <div class="form-group">
                                 <ul class="login-helper">
-                                    <li class="login-helper-content"><a href="forgot.php">கடவுச்சொல் மறந்துவிட்டதா?</a></li>
-                                    <li class="login-helper-content"><a href="signup.php">பதிவு செய்க</a></li>
+                                    <li class="login-helper-content"><a href="forgot.php">Forgot Password?</a></li>
+                                    <li class="login-helper-content"><a href="signup.php">Sign Up</a></li>
                                 </ul>
                             </div>
                             <div class="form-group text-center" id="spam-error" style="visibility:hidden;height:0;">
-                                <label class="login-error">நீங்கள் தேவை அற்றதை பதிவிட்டதால் வெளியேற்ற பட்டுள்ளீர்கள். இதை திரும்பத் திரும்ப செய்தால்  உங்கள் கணக்கு தடை செய்யப்படும்.</label>
+                                <label class="login-error">You have been logged out for spamming. Repeating this will result in banning of your account.</label>
                             </div>
                             <?php
                                 if ($_SESSION['reset'] == 1) {
                                     echo '
                                         <div class="form-group text-center">
-                                            <label class="login-error">கடவுச்சொல் புதுப்பிக்கப்பட்டது</label>
+                                            <label class="login-error">Password has been reset successfully.</label>
                                         </div>
                                     ';
                                 }
                                 if (isset($_SESSION['locked'])) {
                                     echo '
                                         <div class="form-group text-center">
-                                            <label class="login-error">உங்கள் IP முகவரி சந்தேகத்திற்கிடமான நடவடிக்கையால் கொடியிடப்பட்டுள்ளது. நீங்கள் தற்காலிகமாக தடை செய்யப்பட்டுள்ளீர்கள்.</label>
+                                            <label class="login-error">Your IP address has been flagged for suspicious activity. You have been temporarily banned.</label>
                                         </div>
                                     ';
                                 }
                                 if (isset($_SESSION['spam'])) {
                                     echo '
                                         <div class="form-group text-center">
-                                            <label class="login-error">நீங்கள் தேவை அற்றதை பதிவிட்டதால் வெளியேற்ற பட்டுள்ளீர்கள். இதை திரும்பத் திரும்ப செய்தால்  உங்கள் கணக்கு தடை செய்யப்படும்.</label>
+                                            <label class="login-error">You have been logged out for spamming. Repeating this will result in banning of your account.</label>
                                         </div>
                                     ';
                                 }
@@ -82,21 +82,21 @@
                                     if ($_SESSION['login-error'] == 1) {
                                         echo '
                                             <div class="form-group text-center">
-                                                <label class="login-error">நீங்கள் உள்ளிட்ட கடவுச்சொல் தவறானது. </label>
+                                                <label class="login-error">Invalid credentials. Try again.</label>
                                             </div>
                                         ';
                                     }
                                     elseif ($_SESSION['login-error'] == 3) {
                                         echo '
                                             <div class="form-group text-center">
-                                                <label class="login-error">உங்கள் கணக்கை செயல்படுத்த உங்கள் மின்னஞ்சலைப் பாருங்கள்</label>
+                                                <label class="login-error">Check your mail for activation link.</label>
                                             </div>
                                         ';
                                     }
                                     else {
                                         echo '
                                             <div class="form-group text-center">
-                                                <label class="login-error">நீங்கள் மனிதன் என்று நிரூபியிங்கல் </label>
+                                                <label class="login-error">Please prove that you are human.</label>
                                             </div>
                                         ';
                                     }
@@ -104,7 +104,7 @@
                                 session_destroy();
                             ?>
                             <div style="text-align: -webkit-center;margin-bottom: 10px;" class="g-recaptcha" data-theme="dark" data-sitekey="6LcbKhETAAAAAG0qN3ebzmdKFqTMCDJI8gv4GWyo"></div>
-                            <input class="btn btn-lg btn-success btn-block" type="submit" value="உள் நுழை">
+                            <input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
                         </fieldset>
                         </form>
                     </div>

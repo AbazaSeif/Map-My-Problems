@@ -1,19 +1,132 @@
-group users
+MmP
 
-
-export/import
-
-
-extraction
+think of something to display in the left pane before something is clicked - fetch and display some govnt scheme or announcement?
 
 
 
-stop bounce of closed - bug may not be fixed :/
+
+add proper comments to everything and clean the code...epecially on reports...it's currently a huge spagetti of JS, PHP and HTML - important
+  ** reports.php - done
 
 
-trending
+
+Provide a way to export/import JSON/CSV. - needs internet(really??? try looking at old projects...soilwatch might have something) - doing this tomo :P
 
 
-category of complaints
 
-separate admin sections from user sections
+add share to fb/twitter - needs internet - is this really necessary? - maybe only in emergency mode?
+
+
+
+Write a script to automatically setup the requirements and the DB. - needs internet - well, this should be interesting...linux only or win also? I have no win to test :P saw win based machines at nic hq..grr...Stll, concentrate on linux. Create on win if there is too much time to kill. Only for fun sake.
+
+
+
+Add Tamil translations. - on it - needs internet AND TAMIL KNOWLEDGE(tech words)!!! - team doesnt know technical Tamil..whom to ask?? HMMMMM. - Idea...simple word replacer..better than asking people to edit soruce files which makes them afraid...Since this seems rather demanding, it looks better to have only limited fields in login, signup and reports in Tamil. Interestingly, TNGOV itself has no Tamil option.
+
+
+
+make map a global var and try putting custom controls in an external js file. will reduce the length of the file :P
+
+
+find what happens if closeComplaint() is moved inside window.onload()
+
+
+
+Get domain name - Vignesh/Vishwas
+
+-------------------- Done - Needs Testing ------------
+
+
+
+Remove all admin login links from the application and make it a standalone application. - assign this as well...too boring and simple
+
+
+
+
+Give level based authentication to admins. - long pending, simple, mundane task 
+lol - should stop postponing this considering how simple it is to implement. - finally done :D
+
+
+
+check why the hell the if(1) is present in line 399 of report.php in the comment builder
+
+
+
+removed duplicate
+ 	if (isset($_SESSION["votedId"])) 
+in line 499.
+
+
+
+
+add user's name to $_SESSION[] to prevent extra query - done
+
+
+
+replace all JS document.* with $()
+ ** done except for lines 31 and 39. They need internet to check if changes break anything. - done, 31 and 39 better left unchanged.
+
+
+
+find source of auto opening infowindows on zooming - needs internet - bug - pending 
+
+
+
+emergency mode - improve it. - needs internet - do nl2br to stop js errors - also check for other bugs that might have resulted due to oversimplication. - bug - pending
+
+
+
+talkpage - what kind of talk? sleep shud explain what I had in mind when I typed this here. - simply enable email :P this is a crappy feature that came here just because it could....not deleting to discuss with team and decide FCOA - pending
+
+
+
+verified prof for admins - needs internet - simple but hey, what a mess! there is no way to find if the user is an admin at client side. This is going to be tough.---well I might have a simple soln/hack. add a salt to createcomment and replace that salt on report.php...that way no db change and very easy to do it. - Done. Just check  the markers once internet is back. - works
+
+
+
+Extract key words and display as trending topics. - needs internet - might be an overkill...why not just display trending posts? - Done. Just trending posts based on vote...Move to testing zone. - works
+
+
+
+enable date on markers - needs internet - done thanks to patchy mobile net. Just verify - works
+
+change color of submit prompt - done
+
+check close.php - needs internet - confident though. didnt make any change that has the power to kill. - works
+
+
+
+
+Add categories to complaints. - needs internet to get existing categories from TNGOV - another case of postponing easy stuff....probably because the lack of difficulty makes it boring??  Assign  to teammates :P
+ - remvoe this
+
+----------------------------------------------------
+
+Gh
+
+
+PaatuDabba: - Difficult, interesting and fun - my kind of stuff...
+	* connect all devices to a central server..
+	* copy *.mp3
+	* shuffle and play across each client.
+
+
+	Web based UI for the application...like Saavn.
+
+	Player is simple..All standard stuff...jPlayer plugin :P
+
+	Collecting and storing mp3 is the difficulty..
+
+	Better wait till internet is restored and then decide. Just make some inroads for now.
+
+	This is turning out to be simpler than I thought.
+	What inroads? I am building runways now :P
+
+	Podu, Paadu, Sudu :D - app routes.
+
+	Things to pay attention to after internet is back:
+		* UI
+		* why seek isnt present on some songs
+
+
